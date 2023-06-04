@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form onclick="return f1()">
+            <input type="text" id="str" placeholder="Enter a String" >
+            <input type="submit">
+        </form>
+        <p id="a1"></p>
+        <script>
+            function f1(){
+                 a=document.getElementById('str').value;
+                let l=a.length;
+                var arr=[];
+                for(let i=0;i<l;i++)
+                {
+                    arr[i]=a.charCodeAt(i);
+                }
+                for(let i = 0; i < l; i++) {
+        let min = i;
+        for(let j = i+1; j < l; j++){
+            if(arr[j] < arr[min]) {
+                min=j; 
+            }
+         }
+         if (min != i) {
+             let tmp = arr[i]; 
+             arr[i] = arr[min];
+             arr[min] = tmp;      
+        }
+    }
+    let b=[];
+                for(let i=0;i<l;i++)
+                {
+                  b[i]=String.fromCharCode(arr[i]);
+                }
+                document.getElementById('a1').innerHTML=b;
+                return false;
+            }
+        </script>
+    </body>
+</html>
